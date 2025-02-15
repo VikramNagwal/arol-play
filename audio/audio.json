@@ -1,0 +1,18 @@
+[
+	{
+		"songTitle": "Home",
+		"artist": "Weary Pines",
+		"album": "Uppbeat",
+		"songDuration": 109,
+		"url": "/home-weary-pin.mp3",
+		"thumbnail": "/home-weary-pin-thumbnail.jpeg"
+	},
+	{
+		"songTitle": "Golden Summer (Lenny B)",
+		"artist": "Fortune Cookie",
+		"album": "single track",
+		"songDuration": 133,
+		"url": "/golden-summers.mp3",
+		"thumbnail": "/golden-summers-thumbnail.jpeg"
+	}
+]
