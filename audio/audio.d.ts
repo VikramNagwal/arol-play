@@ -1,8 +1,9 @@
 export interface SongProps {
-	name: string;
+	sontTitle: string;
 	artist: string;
 	url: string;
 	albumPicture?: string;
+	duration?: number;
 
 	isCustom?: boolean;
 }
