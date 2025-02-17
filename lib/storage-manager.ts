@@ -27,7 +27,11 @@ export function createStorageManager(): StorageManager {
             return []
         },
         loadSongs() {
-            return [...defaultSongs, ...this.getCustomSongs()]
+            const allSongs = [...defaultSongs, ...this.getCustomSongs()];
+            return allSongs.map(song => ({
+                ...song,
+                artist: song.artist || 'Unknown Artist'
+            }));
         },
     }
 }
