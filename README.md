@@ -1,2 +1,2 @@
-# Arol Play >
+# revante Play >
 ~ not your ordinary music player
