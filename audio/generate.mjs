@@ -12,6 +12,7 @@ async function main() {
 		.filter((items) => songFormats.includes(path.extname(items)))
 		.map(async (items) => {
 			const metadata = await parseFile(path.resolve("public", items));
+			console.log(metadata)
 
 			const base = {
 				songTitle: metadata.common.title ? metadata.common.title : "unknown",
@@ -19,6 +20,7 @@ async function main() {
 				album: metadata.common.album ? metadata.common.album : "single track",
 				songDuration: Math.floor(metadata.format.duration),
 				url: `/${items}`,
+				picture: "/default.jpg",
 			};
 
 			if (metadata.common.picture) {
@@ -28,10 +30,11 @@ async function main() {
 				const name = `${baseTitle}-thumbnail.${ext}`;
 
 				await fs.writeFile(path.resolve("public", name), data);
-				base.thumbnail = `/${name}`;
+				base.picture = `/${name}`;
 			}
 
 			songs.push(base);
+			// console.log(`Added ${base.songTitle} to the list`);
 		});
 
 	await Promise.all(tasks);
