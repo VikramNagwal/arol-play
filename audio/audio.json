@@ -1,18 +1,48 @@
 [
-	{
-		"songTitle": "Home",
-		"artist": "Weary Pines",
-		"album": "Uppbeat",
-		"songDuration": 109,
-		"url": "/home-weary-pin.mp3",
-		"thumbnail": "/home-weary-pin-thumbnail.jpeg"
-	},
-	{
-		"songTitle": "Golden Summer (Lenny B)",
-		"artist": "Fortune Cookie",
-		"album": "single track",
-		"songDuration": 133,
-		"url": "/golden-summers.mp3",
-		"thumbnail": "/golden-summers-thumbnail.jpeg"
-	}
+  {
+    "songTitle": "unknown",
+    "album": "single track",
+    "songDuration": 215,
+    "url": "/alex.mp3",
+    "picture": "/default.jpg"
+  },
+  {
+    "songTitle": "unknown",
+    "album": "single track",
+    "songDuration": 210,
+    "url": "/ocean.mp3",
+    "picture": "/default.jpg"
+  },
+  {
+    "songTitle": "The Whisper Network",
+    "artist": "Ramin Djawadi",
+    "album": "House of the Dragon: Season 2 (Soundtrack from the HBO® Series)",
+    "songDuration": 93,
+    "url": "/the-whisper-network.mp3",
+    "picture": "/the-whisper-network-thumbnail.jpeg"
+  },
+  {
+    "songTitle": "Intro (Infected)",
+    "artist": "Sickick",
+    "album": "Talksick 3",
+    "songDuration": 294,
+    "url": "/infected-sickick.mp3",
+    "picture": "/infected-sickick-thumbnail.jpeg"
+  },
+  {
+    "songTitle": "Home",
+    "artist": "Weary Pines",
+    "album": "Uppbeat",
+    "songDuration": 109,
+    "url": "/home-weary-pin.mp3",
+    "picture": "/home-weary-pin-thumbnail.jpeg"
+  },
+  {
+    "songTitle": "Golden Summer (Lenny B)",
+    "artist": "Fortune Cookie",
+    "album": "single track",
+    "songDuration": 133,
+    "url": "/golden-summers.mp3",
+    "picture": "/golden-summers-thumbnail.jpeg"
+  }
 ]

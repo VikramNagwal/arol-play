@@ -14,7 +14,7 @@ export interface QueueManager {
 	songs: QueueData[];
 
 	getPendingSong(): QueueData[];
-	getCurrentSong(): QueueData[] | undefined;
+	getCurrentSong(): QueueData | undefined;
 	setIndex: (id: number) => void;
 	setSongs: (song: SongProps[]) => void;
 
@@ -24,13 +24,13 @@ export interface QueueManager {
 
 export function createQueueManager(options: QueueManagerOptions): QueueManager {
 	return {
-		currentSong: -1,
+		currentSong: 0,
 		songs: [],
 
 		setSongs(songs: SongProps[]) {
-			this.songs = songs.map((song, i) => ({ ...song, id: i }));
+			this.songs = songs.map((song, id) => ({ ...song, id: id }));
 
-			this.setIndex(this.currentIndex === -1 ? 0 : this.currentIndex);
+			this.setIndex(this.currentSong === -1 ? 0 : this.currentSong);
 
 			// fire updates
 			options.onUpdate?.(this.getCurrentSong());
@@ -38,11 +38,11 @@ export function createQueueManager(options: QueueManagerOptions): QueueManager {
 		},
 
 		getPendingSong() {
-			return this.songs.slice(this.currentIndex + 1);
+			return this.songs.slice(this.currentSong + 1);
 		},
 
 		getCurrentSong() {
-			return this.songs[this.currentIndex];
+			return this.songs[this.currentSong];
 		},
 		setIndex(id) {
 			let target: number;
@@ -52,17 +52,17 @@ export function createQueueManager(options: QueueManagerOptions): QueueManager {
 			else if (id < 0) target = this.songs.length - 1;
 			else target = id;
 
-			if (this.currentIndex === target) return;
-			this.currentIndex = target;
+			if (this.currentSong === target) return;
+			this.currentSong = target;
 			options.onUpdate?.(this.getCurrentSong());
 		},
 
 		next() {
-			return this.setIndex(this.currentIndex + 1);
+			return this.setIndex(this.currentSong + 1);
 		},
 
 		previous() {
-			return this.setIndex(this.currentIndex - 1);
+			return this.setIndex(this.currentSong - 1);
 		},
 	};
 }
