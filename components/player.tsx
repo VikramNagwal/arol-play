@@ -7,6 +7,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu } from "./menu";
 import { QueueData } from "../lib/queue-manager";
 import { Timeline, DurationControl } from "./controls/timeline";
+import { Balancer } from "react-wrap-balancer";
+import React from "react";
 
 export default function MusicPlayer() {
   const timelineRef = useRef<DurationControl>(undefined);
@@ -66,7 +68,10 @@ export default function MusicPlayer() {
 
   return (
     <motion.main
-      style={{ backdropFilter: "blur(20px)", backgroundImage: "url('/background.png')" }}
+      style={{
+        backdropFilter: "blur(20px)",
+        backgroundImage: "url('/background.png')",
+      }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{
@@ -76,7 +81,9 @@ export default function MusicPlayer() {
       className="relative flex flex-col h-svh px-12 py-16 z-[2] text-purple-100 md:p-24"
       onMouseDown={onClick}
     >
-      <AnimatedTitle text={paused ? "Click to Play" : "revante"} />
+      <Balancer>
+        <AnimatedTitle text={paused ? "Click to Play" : "revante"} />
+      </Balancer>
       <div className="w-full max-w-[500px] mt-2">
         <Timeline musicManager={musicManager} durationRef={timelineRef} />
         <AnimatePresence mode="wait" initial={false}>
@@ -119,8 +126,7 @@ export default function MusicPlayer() {
           ease: "easeInOut",
           duration: 1,
         }}
-      >
-      </motion.div>
+      ></motion.div>
     </motion.main>
   );
 }
